@@ -1,0 +1,20 @@
+/* The accepted station layout, now displaying received frames instead of a poster. */
+.viewport{background:#101917!important;width:min(100%,960px);isolation:isolate}
+#image{display:block;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.viewport:before{z-index:1}.reticle{z-index:2;pointer-events:none}
+.viewport.no-link:after{content:attr(data-video-status);z-index:3;background:#14221ee6;padding:14px;border-radius:8px;font-size:12px}
+.feed-pill i{background:#28ce92}.viewport.no-link .feed-pill i{background:#ecba60}
+.viewport.no-link #image{opacity:.3}.view-top,.view-bottom{pointer-events:none;z-index:2}
+.mode-choices label:has(input:disabled){opacity:.45;cursor:not-allowed}
+.auto-settings input:disabled{opacity:.4}.dpad .center{cursor:pointer}
+.video-stats{position:absolute;right:13px;top:52px;z-index:2;width:184px;padding:9px 10px;background:rgba(12,29,25,.68);border:1px solid #ffffff25;border-radius:8px;color:#f1faf5;pointer-events:none;font-size:10px;line-height:1.35}
+#live-status{display:block;font-size:10px;color:#bff3dc;margin:0 0 6px;font-weight:750}
+.video-stats dl{margin:0}.video-stats dl>div{display:flex;justify-content:space-between;gap:8px;padding:3px 0}.video-stats dt{color:#d2ddd7}.video-stats dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}.video-stats small{display:block;font-size:8px;line-height:1.4;color:#c6d1cb;border-top:1px solid #ffffff25;margin-top:5px;padding-top:5px}#stat-error{display:block;color:#ffd2ca;font-size:9px;overflow-wrap:anywhere;margin-top:4px}#stat-error[hidden]{display:none}
+@media(max-width:650px){.video-stats{right:7px;top:42px;width:147px;padding:5px 7px;font-size:8px}.video-stats dl>div{padding:1px 0}#live-status{font-size:8px;margin-bottom:3px}.video-stats small{font-size:7px}.view-bottom{bottom:5px}.telemetry-strip{padding:4px 6px}}
+.role-nav span,.role-nav strong{font-size:12px;padding:8px;color:#50635c}
+.role-nav strong{background:#e8f5ef;border-radius:8px}.link-state{white-space:nowrap}
+.link-metrics{flex-wrap:wrap}.link-name{white-space:nowrap}.link button:disabled{cursor:wait}
+.command-result #command-detail{overflow-wrap:anywhere}.preview-chip{white-space:nowrap}
+.viewport.dragging{cursor:grabbing}
+@media(min-width:900px){.view-bottom{font-size:10px}.telemetry-strip{flex-wrap:wrap;gap:7px}}
+#transition-result{color:#285d49;border-top:1px solid #dce4de;padding-top:7px;line-height:1.4}

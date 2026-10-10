@@ -1,0 +1,921 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": 1,
+  "groups": {
+    "core": "Unit, contract, policy, framing, protocol, and runner tests requiring no desktop or GStreamer runtime.",
+    "examples": "Example script and integration harness tests requiring no desktop or GStreamer runtime.",
+    "desktop": "Desktop orchestration tests requiring an active graphical desktop/Tkinter.",
+    "gst": "Tests requiring native GStreamer runtime and PyGObject bindings."
+  },
+  "entries": [
+    {"id":"core-robot-station-demo","file":"tests/test_robot_station_demo.py","group":"core","selectors":["tests/test_robot_station_demo.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Headless demo coordinate bounds, invalid movement rejection and truthful replay/sensor-feedback UI labels."},
+    {"id":"core-release-smoke","file":"tests/test_release_smoke.py","group":"core","selectors":["tests/test_release_smoke.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Small self-contained v1 import and real UDP/TCP command/sensor checks shipped with the independent release."},
+    {"id":"core-sensor-endpoints","file":"tests/test_sensor_endpoints.py","group":"core","selectors":["tests/test_sensor_endpoints.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Sensor v1 settings and shared real UDP/TCP transports preserve redundant latest telemetry semantics and lifecycle."},
+    {"id":"core-video-commands-integration","file":"tests/test_video_commands_integration.py","group":"core","selectors":["tests/test_video_commands_integration.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Combined video-command controller uses atomic shared-path UDP blackholes, restored-data evidence, fresh-only metrics and missing-inclusive command acceptance."},
+    {"id":"core-command-endpoints","file":"tests/test_command_endpoints.py","group":"core","selectors":["tests/test_command_endpoints.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Simple command API uses video's byte transport contract, real UDP/TCP, verified startup, bounded admission, receipts, recovery and cleanup."},
+    {"id":"core-command-phase1","file":"tests/test_command_phase1.py","group":"core","selectors":["tests/test_command_phase1.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Verified bounded ordered startup, queued first command, redundant ordered delivery and receiver acceptance versus application execution."},
+    {"id":"core-ordered-dispatch-pool","file":"tests/test_ordered_dispatch_pool.py","group":"core","selectors":["tests/test_ordered_dispatch_pool.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Reusable ordered dispatch preserves one-message ACK window, bounded queue, redundant copies and shutdown."},
+    {"id":"core-command-comparison","file":"tests/test_command_comparison.py","group":"core","selectors":["tests/test_command_comparison.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Synthetic command execution/result identity, duplicate/expiry gate and missing-inclusive metrics."},
+    {"id":"core-video-file-replay","file":"tests/test_video_file_replay.py","group":"core","selectors":["tests/test_video_file_replay.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Recorded input bounds and looping without timestamp reset."},
+    {"id":"core-adaptive-video","file":"tests/test_adaptive_video.py","group":"core","selectors":["tests/test_adaptive_video.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Video v1 policy, measurement or transport regression checks without native codecs."},
+    {"id":"core-adaptive-video-comparison","file":"tests/test_adaptive_video_comparison.py","group":"core","selectors":["tests/test_adaptive_video_comparison.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Video v1 policy, measurement or transport regression checks without native codecs."},
+    {"id":"core-srt-video-ingress","file":"tests/test_srt_video_ingress.py","group":"core","selectors":["tests/test_srt_video_ingress.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Native SRT player source timing, bounded decode backpressure and stage diagnostics."},
+    {"id":"core-video-freshness-metrics","file":"tests/test_video_freshness_metrics.py","group":"core","selectors":["tests/test_video_freshness_metrics.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Video v1 policy, measurement or transport regression checks without native codecs."},
+    {"id":"core-video-latest-any-path","file":"tests/test_video_latest_any_path.py","group":"core","selectors":["tests/test_video_latest_any_path.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Video v1 policy, measurement or transport regression checks without native codecs."},
+    {"id":"core-video-observer-overhead","file":"tests/test_video_observer_overhead.py","group":"core","selectors":["tests/test_video_observer_overhead.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Video v1 policy, measurement or transport regression checks without native codecs."},
+    {"id":"core-video-stage-trace","file":"tests/test_video_stage_trace.py","group":"core","selectors":["tests/test_video_stage_trace.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Video v1 policy, measurement or transport regression checks without native codecs."},
+    {"id":"core-video-udp-wakeup","file":"tests/test_video_udp_wakeup.py","group":"core","selectors":["tests/test_video_udp_wakeup.py"],"import_prerequisites":[],"execution_prerequisites":[],"gst_elements":[],"reason":"Video v1 policy, measurement or transport regression checks without native codecs."},
+    {
+      "id": "core-video-dynamic-fps", "file": "tests/test_dynamic_fps.py", "group": "core",
+      "selectors": ["tests/test_dynamic_fps.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Negotiated FPS intersection, two explicit adaptation priorities, one-axis changes, target cadence and comparison schedule."
+    },
+    {
+      "id": "core-video-restart", "file": "tests/test_video_restart.py", "group": "core",
+      "selectors": ["tests/test_video_restart.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Real UDP peer replacement, new codec generations, retired sessions, periodic discovery no-op and recovery opt-out."
+    },
+    {
+      "id": "core-video-ordered-tcp", "file": "tests/test_video_ordered_tcp.py", "group": "core",
+      "selectors": ["tests/test_video_ordered_tcp.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "TCP framing, bounded local queues, ordered deduplication, explicit gap/overflow errors and reliable adapter negotiation."
+    },
+    {
+      "id": "core-video-v1-api", "file": "tests/test_video_v1_api.py", "group": "core",
+      "selectors": ["tests/test_video_v1_api.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Canonical v1 API identity, import without native allocation, runnable example arguments, fixed FPS defaults and cleanup on success/error."
+    },
+    {
+      "id": "core-video-endpoints", "file": "tests/test_video_endpoints.py", "group": "core",
+      "selectors": ["tests/test_video_endpoints.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Real UDP byte framing, receiver-driven configuration negotiation, timeout cleanup and endpoint lifecycle with codec stubs."
+    },
+    {
+      "id": "core-video-transport-contract", "file": "tests/test_video_transport_contract.py", "group": "core",
+      "selectors": ["tests/test_video_transport_contract.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Protocol-independent v1 transport shape, bounded send status, explicit capabilities and side-effect-free endpoint settings."
+    },
+    {
+      "id": "core-adaptive-bounds", "file": "tests/test_adaptive_bounds.py", "group": "core",
+      "selectors": ["tests/test_adaptive_bounds.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Dynamic developer-bounded quality ladders, best-available late delivery, strict option and no rewind."
+    },
+    {
+      "id": "core-video-efficiency", "file": "tests/test_video_efficiency.py", "group": "core",
+      "selectors": ["tests/test_video_efficiency.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Owned counter identity, no forwarding double-count, timing uncertainty, measured rate selection and optional NumPy eight-case plan."
+    },
+    {
+      "id": "core-dual-quality-video", "file": "tests/test_dual_quality.py", "group": "core",
+      "selectors": ["tests/test_dual_quality.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Fixed two-tier bounds, fresh high preference, cached baseline fallback, no public capture rewind."
+    },
+    {
+      "id": "core-video-quality-metrics", "file": "tests/test_video_quality_metrics.py", "group": "core",
+      "selectors": ["tests/test_video_quality_metrics.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Optional NumPy measurement tests: image fidelity, bounded luma storage, exact source identity. Skips explicitly if NumPy absent."
+    },
+    {
+      "id": "core-dual-video-comparison", "file": "tests/test_dual_video_comparison.py", "group": "core",
+      "selectors": ["tests/test_dual_video_comparison.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Optional NumPy measurement tests: identical short schedules, native inventory, late errors and silence as candidate results."
+    },
+    {
+      "id": "core-video-receiver-negotiation",
+      "file": "tests/test_video_negotiation.py", "group": "core",
+      "selectors": ["tests/test_video_negotiation.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Receiver bounds, lowest compatible discrete profile, actual UDP agreement/rejection, lossy-control retries, timeout and stale/conflicting offers."
+    },
+    {
+      "id": "core-shared-video-baseline",
+      "file": "tests/test_shared_video.py", "group": "core",
+      "selectors": ["tests/test_shared_video.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Pre-decode duplicate selection, H264 reference recovery, bounded fragmentation and real loopback UDP recovery. Native codec verification uses the Pi smoke runner."
+    },
+    {
+      "id": "core-video-comparison-metrics",
+      "file": "tests/test_video_comparison_metrics.py",
+      "group": "core",
+      "selectors": ["tests/test_video_comparison_metrics.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Video decoded-frame freshness: terminal silence, age, stale frames and clock rejection."
+    },
+    {
+      "id": "core-video-comparison-controller",
+      "file": "tests/test_video_comparison_controller.py",
+      "group": "core",
+      "selectors": ["tests/test_video_comparison_controller.py"],
+      "import_prerequisites": [], "execution_prerequisites": [], "gst_elements": [],
+      "reason": "Owned video namespaces, unchanged baseline, scoped degradation and native readiness proofs."
+    },
+    {
+      "id": "gst-probe-buffer-replacement",
+      "file": "tests/test_gst_probe_buffer.py",
+      "group": "gst",
+      "selectors": ["tests/test_gst_probe_buffer.py"],
+      "import_prerequisites": ["gst"], "execution_prerequisites": ["gst"],
+      "gst_elements": ["appsrc", "identity", "appsink"],
+      "reason": "Native pad-probe buffer reference transfer, timestamps and flags without camera or network."
+    },
+    {
+      "id": "core-latest-dispatch-pool",
+      "file": "tests/test_latest_dispatch_pool.py",
+      "group": "core",
+      "selectors": ["tests/test_latest_dispatch_pool.py"],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Reusable latest/no-receipt dispatch workers: capacity, stale values, shutdown and unchanged ordered behavior."
+    },
+    {
+      "id": "core-multiflow-concurrent-benchmark",
+      "file": "tests/test_multiflow_concurrent_benchmark.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_concurrent_benchmark.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Concurrent benchmark tests for multiflow communication without native or GUI requirements."
+    },
+    {
+      "id": "core-multiflow-latest-only-semantics",
+      "file": "tests/test_multiflow_latest_only_semantics.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_latest_only_semantics.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Latest-only message delivery semantics unit tests."
+    },
+    {
+      "id": "core-multiflow-reconnect-semantics",
+      "file": "tests/test_multiflow_reconnect_semantics.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_reconnect_semantics.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Multiflow reconnection and session recovery unit tests."
+    },
+    {
+      "id": "core-multiflow-regressions",
+      "file": "tests/test_multiflow_regressions.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_regressions.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Regression tests for multiflow messaging."
+    },
+    {
+      "id": "core-multiflow-review-fixes",
+      "file": "tests/test_multiflow_review_fixes.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_review_fixes.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Multiflow review fix verification tests."
+    },
+    {
+      "id": "core-multiflow-stage1-core",
+      "file": "tests/test_multiflow_stage1_core.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_stage1_core.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Stage 1 multiflow core types, tickets, and contracts."
+    },
+    {
+      "id": "core-multiflow-stage2-scheduler",
+      "file": "tests/test_multiflow_stage2_scheduler.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_stage2_scheduler.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Stage 2 multiflow priority scheduler unit tests."
+    },
+    {
+      "id": "core-multiflow-stage3-messages",
+      "file": "tests/test_multiflow_stage3_messages.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_stage3_messages.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Stage 3 message sender and receiver dispatch tests."
+    },
+    {
+      "id": "core-multiflow-stage4-qos",
+      "file": "tests/test_multiflow_stage4_qos.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_stage4_qos.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Stage 4 quality of service and traffic marking tests."
+    },
+    {
+      "id": "core-multiflow-stage5-lab-and-bridge",
+      "file": "tests/test_multiflow_stage5_lab_and_bridge.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_stage5_lab_and_bridge.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Stage 5 lab integration and bridge unit tests."
+    },
+    {
+      "id": "core-multiflow-telemetry-codec",
+      "file": "tests/test_multiflow_telemetry_codec.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_telemetry_codec.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Telemetry sample wire encoding and decoding unit tests."
+    },
+    {
+      "id": "core-multiflow-telemetry-events",
+      "file": "tests/test_multiflow_telemetry_events.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_telemetry_events.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Telemetry and event publisher/subscriber contract tests."
+    },
+    {
+      "id": "core-multiflow-telemetry-facade",
+      "file": "tests/test_multiflow_telemetry_facade.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_telemetry_facade.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Telemetry publisher and subscriber facade unit tests."
+    },
+    {
+      "id": "core-multiflow-telemetry-rate-local",
+      "file": "tests/test_multiflow_telemetry_rate_local.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_telemetry_rate_local.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Rate negotiation local decision and state machine tests."
+    },
+    {
+      "id": "core-multiflow-telemetry-rate-protocol",
+      "file": "tests/test_multiflow_telemetry_rate_protocol.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_telemetry_rate_protocol.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Rate negotiation wire protocol and message handling tests."
+    },
+    {
+      "id": "core-multiflow-telemetry-rate-runtime",
+      "file": "tests/test_multiflow_telemetry_rate_runtime.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_multiflow_telemetry_rate_runtime.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Rate-controlled telemetry publisher and subscriber runtime integration tests."
+    },
+    {
+      "id": "core-reverse-tcp-telemetry",
+      "file": "tests/test_reverse_tcp_telemetry.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_reverse_tcp_telemetry.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Reverse TCP telemetry reconnect and rate change integration tests."
+    },
+    {
+      "id": "core-clock-mapping",
+      "file": "tests/test_clock_mapping.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_clock_mapping.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Deterministic cross-device clock offset and drift estimator tests."
+    },
+    {
+      "id": "core-video-policy",
+      "file": "tests/test_video_policy.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_video_policy.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Deterministic video quality and failover policy decision tests."
+    },
+    {
+      "id": "core-video-stream",
+      "file": "tests/test_video_stream.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_video_stream.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Video stream baseline unit tests."
+    },
+    {
+      "id": "core-video-delivery-ordering",
+      "file": "tests/test_video_delivery_ordering.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_video_delivery_ordering.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Deterministic ordered video delivery buffer and reordering tests."
+    },
+    {
+      "id": "core-phase1-contracts-and-fake",
+      "file": "tests/test_phase1_contracts_and_fake.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_phase1_contracts_and_fake.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Phase 1 video transport contracts and fake adapter tests."
+    },
+    {
+      "id": "core-public-api-contract",
+      "file": "tests/test_public_api_contract.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_public_api_contract.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Public imports without GI, alias stability, default parameters, and rate-control ownership validation."
+    },
+    {
+      "id": "core-test-runner",
+      "file": "tests/test_test_runner.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_test_runner.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Test runner and manifest validation unit tests."
+    },
+    {
+      "id": "examples-robot-game-sim",
+      "file": "tests/test_robot_game_sim.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_robot_game_sim.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Robot game motion simulation, collision, and snapshot tests."
+    },
+    {
+      "id": "examples-robot-game-analysis",
+      "file": "tests/test_robot_game_analysis.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_robot_game_analysis.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Robot game log parsing and analysis verification."
+    },
+    {
+      "id": "examples-failover-metrics",
+      "file": "tests/test_failover_metrics.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_failover_metrics.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Failover CSV metrics logging and file formatting tests."
+    },
+    {
+      "id": "examples-live-connection-recovery",
+      "file": "tests/test_live_connection_recovery.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_live_connection_recovery.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Simulated path connection stalls, rebuilds, and epoch transitions."
+    },
+    {
+      "id": "examples-robot-game-telemetry",
+      "file": "tests/test_robot_game_telemetry.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_robot_game_telemetry.py::test_02_defaults_and_invalid_cli_values",
+        "tests/test_robot_game_telemetry.py::test_03_exact_six_port_channel_direction_mapping",
+        "tests/test_robot_game_telemetry.py::test_04_distinct_adapter_instances_no_reuse",
+        "tests/test_robot_game_telemetry.py::test_05_dot_state_codec_validation",
+        "tests/test_robot_game_telemetry.py::test_06_epoch_changes_between_sessions_sequence_monotonic",
+        "tests/test_robot_game_telemetry.py::test_07_negotiate_request_10_cap_30_activates_10",
+        "tests/test_robot_game_telemetry.py::test_08_negotiate_request_20_cap_8_activates_8",
+        "tests/test_robot_game_telemetry.py::test_09_runtime_request_10_to_5_activates_new_agreement",
+        "tests/test_robot_game_telemetry.py::test_10_no_application_delivery_before_active_agreement",
+        "tests/test_robot_game_telemetry.py::test_11_latest_state_coalescence_while_disconnected",
+        "tests/test_robot_game_telemetry.py::test_12_path_failover_a_fails_b_continues",
+        "tests/test_robot_game_telemetry.py::test_13_dual_path_failure_and_recovery_without_gui_reconnect",
+        "tests/test_robot_game_telemetry.py::test_14_staleness_display_updates_without_receiving_observation",
+        "tests/test_robot_game_telemetry.py::test_15_unknown_source_age_remains_unknown",
+        "tests/test_robot_game_telemetry.py::test_17_bounded_ui_storage_under_high_frequency",
+        "tests/test_robot_game_telemetry.py::test_18_old_lifecycle_callbacks_ignored_in_new_session",
+        "tests/test_robot_game_telemetry.py::test_20_shared_scheduler_ownership_and_priorities",
+        "tests/test_robot_game_telemetry.py::test_22_logging_compatibility_and_summaries",
+        "tests/test_robot_game_telemetry.py::test_nonfinite_wire_coordinates_are_rejected"
+      ],
+      "import_prerequisites": [
+        "tk"
+      ],
+      "execution_prerequisites": [
+        "tk"
+      ],
+      "gst_elements": [],
+      "reason": "Non-GUI telemetry port calculation, state codecs, negotiation logic, and failover tests."
+    },
+    {
+      "id": "examples-robot-game-comm-and-log",
+      "file": "tests/test_robot_game_comm_and_log.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_quality_bounds_station_configuration",
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_duplicate_movement_message_applied_once",
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_latest_only_semantics_disconnection_and_watchdog",
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_logger_flush_barrier_disk_sync",
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_logger_queue_congestion_and_warning"
+      ],
+      "import_prerequisites": [
+        "tk"
+      ],
+      "execution_prerequisites": [
+        "tk"
+      ],
+      "gst_elements": [],
+      "reason": "Robot game messaging semantics, deduplication, watchdog, and logger barrier tests without Tk root."
+    },
+    {
+      "id": "examples-camera-dot-source",
+      "file": "tests/test_camera_dot_source.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_camera_dot_source.py::CameraDotSourceTests::test_motion_without_obstacles",
+        "tests/test_camera_dot_source.py::CameraDotSourceTests::test_world_to_camera_mapping"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Camera dot simulation movement and coordinate projection tests."
+    },
+    {
+      "id": "examples-phase3-live-library",
+      "file": "tests/test_phase3_live_library.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_phase3_live_library.py::LiveLibraryContractAndTypesTests",
+        "tests/test_phase3_live_library.py::FramePushSourceTests::test_frame_push_source_parameters",
+        "tests/test_phase3_live_library.py::LiveReceiverLogicTests",
+        "tests/test_phase3_live_library.py::SignalingServerAndClientRoundtripTests",
+        "tests/test_phase3_live_library.py::StandalonePackageImportTests"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Live library contracts, types, signaling roundtrip, and receiver ordering without native pipelines."
+    },
+    {
+      "id": "examples-live-policy-behavior",
+      "file": "tests/test_live_policy_behavior.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_live_policy_behavior.py::TestLivePolicyBehavior::test_1_stable_path_upgrades_one_step_only",
+        "tests/test_live_policy_behavior.py::TestLivePolicyBehavior::test_2_warning_threshold_triggers_rollback_same_path",
+        "tests/test_live_policy_behavior.py::TestLivePolicyBehavior::test_3_persistent_violation_triggers_failover_or_degraded",
+        "tests/test_live_policy_behavior.py::TestLivePolicyBehavior::test_4_unknown_age_blocks_upgrade_in_conservative_mode",
+        "tests/test_live_policy_behavior.py::TestLivePolicyBehavior::test_5_freeze_failover_without_sender_confirmation_and_monotonic",
+        "tests/test_live_policy_behavior.py::TestLivePolicyBehavior::test_7_developer_bounds_actively_change_decisions"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Live policy state machine, decision rules, bounds, and freeze failover using simulated observations."
+    },
+    {
+      "id": "examples-custom-adapters",
+      "file": "tests/test_custom_adapters.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_custom_adapters.py::CustomAdaptersContractTests",
+        "tests/test_custom_adapters.py::TcpFramingAndNetworkTests",
+        "tests/test_custom_adapters.py::UdpFragmentationAndAssemblyTests",
+        "tests/test_custom_adapters.py::StaleSessionRejectionTests",
+        "tests/test_custom_adapters.py::MonotonicOrderingAcrossTransportsTests",
+        "tests/test_custom_adapters.py::FailoverAndRecoveryTests",
+        "tests/test_custom_adapters.py::UpstreamQualityAdaptationTests::test_receiver_quality_command_forwarded_to_adapter"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Custom TCP/UDP packet framing, fragmentation, reassembly, and socket reconnect tests."
+    },
+    {
+      "id": "examples-frame-age-metrics",
+      "file": "tests/test_frame_age_metrics.py",
+      "group": "examples",
+      "selectors": [
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_asymmetric_clock_offset_age_interval",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_artificial_capture_to_arrival_delay_increases_upper_bound",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_stale_and_invalid_samples_return_unknown",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_identical_frame_on_two_paths_shares_metadata",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_sender_restart_epoch_invalidation_and_late_probe_rejection",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_policy_budget_exceeded_by_frame_age_even_with_40ms_cadence",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_signaling_rejects_missing_or_mismatched_nonce",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_h264_marker_validation_unsupported_version_and_conflict"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Frame age metrics, SEI NALU framing, and clock mapping verification without native pipeline."
+    },
+    {
+      "id": "desktop-robot-game-telemetry",
+      "file": "tests/test_robot_game_telemetry.py",
+      "group": "desktop",
+      "selectors": [
+        "tests/test_robot_game_telemetry.py::test_01_telemetry_disabled_creates_no_endpoints",
+        "tests/test_robot_game_telemetry.py::test_16_callbacks_perform_no_tk_calls",
+        "tests/test_robot_game_telemetry.py::test_19_start_stop_restart_and_partial_failure_cleanup",
+        "tests/test_robot_game_telemetry.py::test_21_movement_commands_work_while_telemetry_active",
+        "tests/test_robot_game_telemetry.py::test_real_socket_telemetry_updates_actual_gui"
+      ],
+      "import_prerequisites": [
+        "tk"
+      ],
+      "execution_prerequisites": [
+        "tk"
+      ],
+      "gst_elements": [],
+      "reason": "Desktop Tkinter application orchestration, telemetry UI bindings, and key handling."
+    },
+    {
+      "id": "desktop-robot-game-comm-and-log",
+      "file": "tests/test_robot_game_comm_and_log.py",
+      "group": "desktop",
+      "selectors": [
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_station_start_clean_failure_on_video_error",
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_station_stop_waits_for_zero_ticket",
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_focus_out_handler_clears_keys_and_sends_stop",
+        "tests/test_robot_game_comm_and_log.py::TestRobotGameCommAndLog::test_frame_presentation_tracking_and_deduplication"
+      ],
+      "import_prerequisites": [
+        "tk"
+      ],
+      "execution_prerequisites": [
+        "tk"
+      ],
+      "gst_elements": [],
+      "reason": "Robot game GUI widget lifecycle, focus handling, and frame presentation tracking."
+    },
+    {
+      "id": "gst-camera-dot-source",
+      "file": "tests/test_camera_dot_source.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_camera_dot_source.py::CameraDotSourceTests::test_gstreamer_captures_frames_and_moves_overlay",
+        "tests/test_camera_dot_source.py::CameraDotSourceTests::test_dot_camera_reaches_receiver_over_both_webrtc_paths"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [
+        "gst"
+      ],
+      "gst_elements": [
+        "appsrc",
+        "videotestsrc"
+      ],
+      "reason": "Native camera overlay and WebRTC pipeline streaming."
+    },
+    {
+      "id": "gst-phase3-live-library",
+      "file": "tests/test_phase3_live_library.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_phase3_live_library.py::FramePushSourceTests::test_push_returns_false_when_unstarted",
+        "tests/test_phase3_live_library.py::LiveEndToEndLoopbackTests"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [
+        "gst"
+      ],
+      "gst_elements": [
+        "webrtcbin"
+      ],
+      "reason": "LiveSender and LiveReceiver end-to-end loopback with WebRTC media."
+    },
+    {
+      "id": "gst-live-policy-behavior",
+      "file": "tests/test_live_policy_behavior.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_live_policy_behavior.py::TestLivePolicyBehavior::test_6_live_webrtc_signaling_quality_command_applied_and_observed",
+        "tests/test_live_policy_behavior.py::TestLivePolicyBehavior::test_8_per_path_delay_lab_experiment"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [
+        "gst"
+      ],
+      "gst_elements": [
+        "webrtcbin"
+      ],
+      "reason": "Live WebRTC signaling quality command and per-path delay lab experiment."
+    },
+    {
+      "id": "gst-custom-adapters",
+      "file": "tests/test_custom_adapters.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_custom_adapters.py::UpstreamQualityAdaptationTests::test_sender_handles_adapter_quality_command",
+        "tests/test_custom_adapters.py::EndToEndCustomAdaptersPipelineTests"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [
+        "gst"
+      ],
+      "gst_elements": [
+        "appsrc"
+      ],
+      "reason": "Custom adapter tests constructing LiveSender native pipeline."
+    },
+    {
+      "id": "gst-frame-age-metrics",
+      "file": "tests/test_frame_age_metrics.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_artificial_gui_presentation_delay_increases_presented_age",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_clock_stoppage_transitions_to_unknown_without_stale_fallback",
+        "tests/test_frame_age_metrics.py::TestFrameAgeMetrics::test_frame_push_source_exact_pts_matching_and_miss_tracking"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [
+        "gst"
+      ],
+      "gst_elements": [
+        "appsrc"
+      ],
+      "reason": "Frame age metrics methods exercising default WebRtcReceiverAdapter or FramePushSource Gst buffers."
+    },
+    {
+      "id": "gst-frame-id-h264",
+      "file": "tests/test_frame_id_h264.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_frame_id_h264.py"
+      ],
+      "import_prerequisites": [
+        "gst"
+      ],
+      "execution_prerequisites": [
+        "gst"
+      ],
+      "gst_elements": [],
+      "reason": "H.264 SEI metadata injection and extraction with module-level GI import."
+    },
+    {
+      "id": "gst-adaptive-gui",
+      "file": "tests/test_adaptive_gui.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_adaptive_gui.py"
+      ],
+      "import_prerequisites": [
+        "tk",
+        "gst"
+      ],
+      "execution_prerequisites": [
+        "tk",
+        "gst"
+      ],
+      "gst_elements": [],
+      "reason": "Adaptive GUI legacy integration importing GI at module scope."
+    },
+    {
+      "id": "gst-gui-failover",
+      "file": "tests/test_gui_failover.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_gui_failover.py"
+      ],
+      "import_prerequisites": [
+        "tk",
+        "gst"
+      ],
+      "execution_prerequisites": [
+        "tk",
+        "gst"
+      ],
+      "gst_elements": [],
+      "reason": "GUI failover legacy integration importing GI at module scope."
+    },
+    {
+      "id": "gst-phase2-gui-adapters",
+      "file": "tests/test_phase2_gui_adapters.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_phase2_gui_adapters.py"
+      ],
+      "import_prerequisites": [
+        "tk",
+        "gst"
+      ],
+      "execution_prerequisites": [
+        "tk",
+        "gst"
+      ],
+      "gst_elements": [],
+      "reason": "Phase 2 GUI adapter integration importing GI at module scope."
+    },
+    {
+      "id": "gst-phase2-webrtc-adapters",
+      "file": "tests/test_phase2_webrtc_adapters.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_phase2_webrtc_adapters.py"
+      ],
+      "import_prerequisites": [
+        "gst"
+      ],
+      "execution_prerequisites": [
+        "gst"
+      ],
+      "gst_elements": [
+        "webrtcbin"
+      ],
+      "reason": "Phase 2 WebRTC adapter compliance, quality control, and loopback tests."
+    },
+    {
+      "id": "gst-live-library-gui",
+      "file": "tests/test_live_library_gui.py",
+      "group": "gst",
+      "selectors": [
+        "tests/test_live_library_gui.py"
+      ],
+      "import_prerequisites": [
+        "tk",
+        "gst"
+      ],
+      "execution_prerequisites": [
+        "tk",
+        "gst"
+      ],
+      "gst_elements": [],
+      "reason": "Live library GUI tests and test 9 inventory verification requiring Tk and module-level GI."
+    },
+    {
+      "id": "core-package-artifacts",
+      "file": "tests/test_package_artifacts.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_package_artifacts.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Fast package artifact security, metadata, and inventory unit tests."
+    },
+    {
+      "id": "core-installed-package-checks",
+      "file": "tests/test_installed_package_checks.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_installed_package_checks.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Fast package check supervisor CLI, bounds, and report uniqueness unit tests."
+    },
+    {
+      "id": "core-installed-socket-checks",
+      "file": "tests/test_installed_socket_checks.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_installed_socket_checks.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Fast installed socket check supervisor, catalog, relay, and negative assay unit tests."
+    },
+    {
+      "id": "core-installed-native-checks",
+      "file": "tests/test_installed_native_checks.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_installed_native_checks.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Native acceptance report validation and artifact integrity without loading GStreamer."
+    },
+    {
+      "id": "core-network-lab",
+      "file": "tests/test_network_lab.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_network_lab.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "Isolated Linux network laboratory planner, validation, journal, and probe unit tests."
+    },
+    {
+      "id": "core-telemetry-comparison",
+      "file": "tests/test_telemetry_comparison.py",
+      "group": "core",
+      "selectors": [
+        "tests/test_telemetry_comparison.py"
+      ],
+      "import_prerequisites": [],
+      "execution_prerequisites": [],
+      "gst_elements": [],
+      "reason": "AoI measurement contract, recovery metrics, and an unprivileged UDP process smoke test."
+    }
+  ]
+}

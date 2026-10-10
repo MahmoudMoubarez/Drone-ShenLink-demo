@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+stage*-rootless-*/
+*.mp4
+*.webm
+*.mov
+*.sock
+*.log
+# Local run outputs and historical diagnostic snapshots (kept on disk).
+/*.json
+/recovery-before-messages.py
+.venv/
