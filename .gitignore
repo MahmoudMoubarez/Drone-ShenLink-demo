@@ -3,6 +3,7 @@ __pycache__/
 .pytest_cache/
 stage*-rootless-*/
 *.mp4
+!/assets/robot-camera-360.mp4
 *.webm
 *.mov
 *.sock
@@ -11,3 +12,6 @@ stage*-rootless-*/
 /*.json
 /recovery-before-messages.py
 .venv/
+*.egg-info/
+build/
+pytest-cache-files-*/

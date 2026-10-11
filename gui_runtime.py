@@ -22,14 +22,17 @@ def main():
     parser.add_argument('--seconds',type=int,default=600)
     parser.add_argument('--http-port',type=int,default=8791)
     parser.add_argument('--self-check',action='store_true')
+    parser.add_argument('--python', default=sys.executable)
+    parser.add_argument('--release', default=str(ROOT/'vendor/shenlink'))
+    parser.add_argument('--panorama', default=str(ROOT/'assets/robot-camera-360.mp4'))
     args = parser.parse_args()
     if not 20<=args.seconds<=900 or not 1024<=args.http_port<=65535:
         parser.error('Use 20..900 seconds and an unprivileged port')
     if sys.platform!='linux' or os.geteuid()!=0 or int(os.environ.get('SUDO_UID','-1'))<=0:
-        raise SystemExit('Run with sudo from your ordinary Pi account')
-    python = '/home/edgelif2/.cache/mfl-video-runtime/standalone-v1-env/bin/python'
-    release = '/home/edgelif2/work/multiflow-v1-release'
-    panorama = '/home/edgelif2/work/viewer-360/insta360-station-25fps.mp4'
+        raise SystemExit('Use python3 run_demo.py from an ordinary Linux account')
+    python = str(Path(args.python).absolute())
+    release = str(Path(args.release).resolve())
+    panorama = str(Path(args.panorama).resolve())
     for file in (Path(python),Path(panorama),Path(release)/'src/video_stream/v1/__init__.py',ROOT/'live-ui/index.html',ROOT/'live-ui/live.js'):
         if not file.is_file():
             raise SystemExit('Missing input: '+str(file))

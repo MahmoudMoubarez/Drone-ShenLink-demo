@@ -1,0 +1,5 @@
+*.sh text eol=lf
+*.py text eol=lf
+*.mp4 binary
+# Preserve the exact vendored bytes recorded in bundle-manifest.json.
+vendor/** -text

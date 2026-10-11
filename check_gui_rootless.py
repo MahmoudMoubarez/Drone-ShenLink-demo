@@ -10,7 +10,10 @@ import threading
 ROOT = Path(__file__).resolve().parent
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--port',type=int,default=8792)
-port = parser.parse_args().port
+parser.add_argument('--release',type=Path,default=ROOT/'vendor/shenlink')
+parser.add_argument('--panorama',type=Path,default=ROOT/'assets/robot-camera-360.mp4')
+args = parser.parse_args()
+port = args.port
 sys.path.insert(0,str(ROOT))
 from gate_bridge import atomic_json
 from gui_bridge import NetworkControl,StationProxy
@@ -31,8 +34,8 @@ children = []
 try:
     for role in ('station','robot'):
         command = [sys.executable,'-I','-B',str(ROOT/'smoke_endpoints.py'),role,
-            '--release','/home/edgelif2/work/multiflow-v1-release',
-            '--panorama','/home/edgelif2/work/viewer-360/insta360-station-25fps.mp4',
+            '--release',str(args.release.resolve()),
+            '--panorama',str(args.panorama.resolve()),
             '--output',str(endpoints),'--seconds','60','--base-port','29900','--interactive']
         if role=='station':
             command.extend(['--ui-dir',str(ROOT/'live-ui'),'--http-socket',str(endpoints/'station.sock'),
