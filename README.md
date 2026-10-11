@@ -1,5 +1,11 @@
 # ShenLink mission demo
 
+## Test reports
+
+[Detailed results, PDF and raw evidence: ShenLink vs tested SRT Broadcast](https://github.com/MahmoudMoubarez/ShenLink-v1/tree/main/reports).
+These historical video measurements use different source/network profiles from
+this GUI demo; they are not fresh measurements of the current demo.
+
 Receive robot video and sensors, send camera commands, and cut paths while the real ShenLink SDK manages delivery.
 
 ## Install and run — Ubuntu 24.04
